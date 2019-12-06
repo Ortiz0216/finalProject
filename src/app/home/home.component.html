@@ -1,0 +1,21 @@
+
+<h1>Welcome!</h1>
+
+<div class="play-container">
+    <p>Please click <span (click)="countClick1()">this</span> if you are over 21 years of age..</p>
+</div>
+
+<div class="play-container">
+    <p>Please click <span (click)="countClick2()">this</span> if you are under 21 years of age..</p>
+</div>
+
+<div class="play-container"[ngClass]= "setClasses()">
+
+    <ng-template [ngIf]="clickCounter > 0" [ngIfElse]="none">
+        <p>You have said that you <strong>ARE OLDER</strong> than 21. Please continue to the breweries tab to proceed!</p>
+    </ng-template>
+
+    <ng-template #none>
+        <p>You have said that you <strong>ARE YOUNGER</strong> than 21. You are not allowed to proceed to the open list of breweries. Sorry!</p>
+    </ng-template>
+</div>
